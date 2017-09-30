@@ -1,0 +1,27 @@
+<div class="table-users">
+    <div class="header">Countries</div>
+    <input type='text' ng-model='searchText' placeholder="Search.." />
+    <br>
+    <table cellspacing="0" border="1">
+        <tr>
+            <th>Flag</th>
+            <th>Name</th>
+            <th>Region</th>
+            <th>SubRegion</th>
+            <th>Coordinates</th>
+            <th>Currency Details</th>
+        </tr>
+
+        <tr ng-repeat="country in countries | filter: searchText">
+            <td><img align="center" src={{country.FlagPng}} height="42" width="42" alt={{country.Name}}></td>
+            <td align="center">{{country.Name}}</td>
+            <td align="center">{{country.Region}}</td>
+            <td align="center">{{country.SubRegion}}</td>
+            <td align="center">
+                <canvas id="bar" class="chart chart-bar" chart-data="getCoordinates(country.Latitude,country.Longitude)" chart-labels="labels" chart-series="series">
+			</canvas>
+            </td>
+            <td align="center"><button style="height:40px;width:40px" name="View" ng-click="viewDetails(country)">VIEW</button></td>
+        </tr>
+    </table>
+</div>

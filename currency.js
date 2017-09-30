@@ -1,0 +1,1 @@
+var app = angular.module('currencyApp', ['chart.js','LocalStorageModule']);app.controller('currencyCtrl', function($scope,$http,$location,localStorageService) {	$scope.countryData = localStorageService.get("countryData");});
